@@ -1,0 +1,97 @@
+
+
+<div class="mt20" fxLayout="row wrap" fxLayoutAlign="center stretch" fxLayout.lt-md="column" fxLayoutGap="10px">
+
+  <mat-card fxFlex="50" class="example-card mb10" *ngFor="let item of Posts">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{item.dataCreatorName}}</mat-card-title>
+      <mat-select>
+        <mat-select-trigger>
+          <mat-icon>settings</mat-icon>
+        </mat-select-trigger>
+        <mat-option (click)="editPost(item.dataID)">
+          <mat-icon>edit</mat-icon>
+          Düzenle
+
+        </mat-option>
+        <mat-option (click)="deletePost(item.dataID)">
+          <mat-icon>delete</mat-icon>
+          Sil
+
+        </mat-option>
+      </mat-select>
+    </mat-card-header>
+    <mat-card-content>
+   
+      <h2 class="mt-5">{{item.dataTitle}}</h2>
+      <p>
+        {{item.dataDesc}}
+      </p>
+      
+    </mat-card-content> 
+    <!-- <mat-card-content *ngIf="show" @listAnimation >
+      <div class="comments">
+        <div mat-card-avatar class="comment-avatar"></div>
+        <p class="ml-4">Aslan Süleyman</p>
+        <small class="ml-2">testadas</small>
+        <button class="setting-btn" mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Düzenle</span>
+          </button>
+          <button mat-menu-item >
+            <mat-icon>delete</mat-icon>
+            <span>Sil</span>
+          </button>
+         
+        </mat-menu>
+        
+      </div>
+      <div class="comments">
+        <div mat-card-avatar class="comment-avatar"></div>
+        <p class="ml-4">Aslan Süleyman</p>
+        <small class="ml-2">testadas</small>
+        <button class="setting-btn" mat-icon-button [matMenuTriggerFor]="menu" >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Düzenle</span>
+          </button>
+          <button mat-menu-item >
+            <mat-icon>delete</mat-icon>
+            <span>Sil</span>
+          </button>
+         
+        </mat-menu>
+        
+      </div>
+       <div class="comments">
+        <div mat-card-avatar class="comment-avatar"></div>
+        <p class="ml-4">Aslan Süleyman</p>
+        <small class="ml-2">testadas</small>
+        <button class="setting-btn" mat-icon-button [matMenuTriggerFor]="menu" >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Düzenle</span>
+          </button>
+          <button mat-menu-item >
+            <mat-icon>delete</mat-icon>
+            <span>Sil</span>
+          </button>
+        </mat-menu>
+      </div>
+    </mat-card-content> -->
+    
+ 
+  </mat-card>
+  
+</div>

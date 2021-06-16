@@ -1,0 +1,70 @@
+<div
+  class="mt20"
+  fxLayout="row wrap"
+  fxLayoutAlign="center stretch"
+  fxLayout.lt-md="column"
+  fxLayoutGap="10px"
+>
+  <mat-card fxFlex="60">
+    <mat-card-header>
+      <mat-card-title>Kullanıcı Düzenle</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="formGroup">
+        <p>Kullanıcı Bilgileri</p>
+
+        <div>
+          <div>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Ad"
+                formControlName="name"
+                type="name"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Email"
+                formControlName="mail"
+                type="text"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Şifre"
+                formControlName="password"
+                type="password"
+              />
+            </mat-form-field>
+
+            <div>
+              <p>
+                <mat-slide-toggle
+                  color="warn"
+                  [(ngModel)]="isAdmin"
+                  [ngModelOptions]="{ standalone: true }"
+                  >{{ isAdmin ? "Admin" : "Üye" }}</mat-slide-toggle
+                >
+              </p>
+            </div>
+
+            <button
+              class="ml-5"
+              mat-raised-button
+              color="primary"
+              [disabled]="formGroup.invalid"
+              (click)="editUser()"
+            >
+              Kaydet
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

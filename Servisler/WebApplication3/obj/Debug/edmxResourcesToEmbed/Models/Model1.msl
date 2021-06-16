@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB01ModelStoreContainer" CdmEntityContainer="DB01Entities2">
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="DB01Model.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="commentID" ColumnName="commentID" />
+          <ScalarProperty Name="commentPostID" ColumnName="commentPostID" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+          <ScalarProperty Name="commentDate" ColumnName="commentDate" />
+          <ScalarProperty Name="commentCreatorID" ColumnName="commentCreatorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Data">
+      <EntityTypeMapping TypeName="DB01Model.Data">
+        <MappingFragment StoreEntitySet="Data">
+          <ScalarProperty Name="dataCreatorName" ColumnName="dataCreatorName" />
+          <ScalarProperty Name="dataID" ColumnName="dataID" />
+          <ScalarProperty Name="dataTitle" ColumnName="dataTitle" />
+          <ScalarProperty Name="dataDesc" ColumnName="dataDesc" />
+          <ScalarProperty Name="dataCategory" ColumnName="dataCategory" />
+          <ScalarProperty Name="dataImgUrl" ColumnName="dataImgUrl" />
+          <ScalarProperty Name="dataCreatorID" ColumnName="dataCreatorID" />
+          <ScalarProperty Name="dataLikeCount" ColumnName="dataLikeCount" />
+          <ScalarProperty Name="dataCommentCount" ColumnName="dataCommentCount" />
+          <ScalarProperty Name="dataLikes" ColumnName="dataLikes" />
+          <ScalarProperty Name="dataComments" ColumnName="dataComments" />
+          <ScalarProperty Name="dataCreateDate" ColumnName="dataCreateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="DB01Model.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="userAdmin" ColumnName="userAdmin" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="userMail" ColumnName="userMail" />
+          <ScalarProperty Name="userPhoto" ColumnName="userPhoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

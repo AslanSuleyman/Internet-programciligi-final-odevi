@@ -1,0 +1,29 @@
+.profile-card {
+    text-align: center;
+}
+.password-rules .mat-divider {
+    position: unset !important;
+}
+.container{
+    padding-top: 20px;
+}
+
+.ml-5{
+    margin-left: 5rem;
+}
+
+:host {
+    form {
+      .mdl-cell {
+        margin-left: 16px;
+      }
+  
+      .mdl-card__supporting-text {
+        padding-bottom: 70px;
+      }
+    }
+  
+  }
+  .w-100{
+      width: 100% !important;
+  }

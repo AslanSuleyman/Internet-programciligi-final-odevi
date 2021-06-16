@@ -1,0 +1,58 @@
+<section id="sample-table" class="mat-elevation-z8 bg-white">
+  <!-- <mat-form-field> -->
+  <!-- <input matInput  placeholder="Filter">
+    </mat-form-field> -->
+  <table mat-table [dataSource]="dataSource" matSort class="w-100">
+    <!-- <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container> -->
+    <!-- <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container> -->
+
+    <ng-container matColumnDef="userMail">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Mail</th>
+      <td mat-cell *matCellDef="let kayit">{{ kayit.userMail }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="userName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ad</th>
+      <td mat-cell *matCellDef="let kayit">{{ kayit.userName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="userAdmin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Yetki</th>
+      <td mat-cell *matCellDef="let kayit">
+        {{ kayit.userAdmin == 0 ? "Üye" : "Admin" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Duzenle">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Düzenle</th>
+      <td mat-cell *matCellDef="let kayit">
+        <button mat-button color="accent" (click)="editUser(kayit.userID)">
+          Düzenle
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Sil">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Sil</th>
+      <td mat-cell *matCellDef="let kayit">
+        <button mat-button color="accent" (click)="deleteUser(kayit.userID)">
+          Sil
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</section>

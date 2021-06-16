@@ -1,0 +1,56 @@
+@import '~src/scss/variables';
+.location-icon {
+  color: $primary-color;
+}
+
+
+
+.example-header-image {
+  background-image: url('../../../../assets/images/user.png');
+  background-size: cover;
+}
+
+.ml-4{
+  margin-left: 4rem;
+}
+.ml-2{
+  margin-left: 1rem;
+  margin-bottom: 10px;
+}
+.mt-5{
+  margin-top: 10px !important;
+}
+.comments{
+  position: relative;
+    border: 1px solid #517280;
+    border-radius: 13px;
+    padding: 7px;
+    margin-bottom: 5px;
+}
+.comment-avatar {
+  float: left;
+  margin-left: 15px;
+  background-image: url('../../../../assets/images/user.png');
+  background-size: cover;
+}
+.comment-input{
+  width: 70%;
+  margin: 0px 0px 0 15px;
+  float: left;
+  padding: 15px 60px 20px 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-weight: 700;
+}
+.comment-forward{
+  position: absolute;
+  right: 14px;
+  top:7px;
+}
+
+/*settings*/
+.setting-btn{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="commentID" />
+    </Key>
+    <Property Name="commentID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="commentPostID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="comment" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="commentDate" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="commentCreatorID" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Data">
+    <Key>
+      <PropertyRef Name="dataID" />
+    </Key>
+    <Property Name="dataID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dataTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dataDesc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dataCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="dataImgUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="dataCreatorID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dataLikeCount" Type="int" Nullable="false" />
+    <Property Name="dataCommentCount" Type="int" Nullable="false" />
+    <Property Name="dataLikes" Type="nvarchar" MaxLength="50" />
+    <Property Name="dataComments" Type="nvarchar" MaxLength="50" />
+    <Property Name="dataCreateDate" Type="int" Nullable="false" />
+    <Property Name="dataCreatorName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userPhoto" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userAdmin" Type="int" />
+  </EntityType>
+  <Association Name="FK_Comment_ToUser">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="commentCreatorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Data_ToData">
+    <End Role="Data" Type="Self.Data" Multiplicity="1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Data">
+        <PropertyRef Name="dataID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="commentPostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB01ModelStoreContainer">
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Data" EntityType="Self.Data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Comment_ToUser" Association="Self.FK_Comment_ToUser">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Data_ToData" Association="Self.FK_Data_ToData">
+      <End Role="Data" EntitySet="Data" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
